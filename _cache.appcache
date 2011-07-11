@@ -1,8 +1,8 @@
 CACHE MANIFEST
-#04/07/2011 - 01h54
+#05/07/2011 - 00h25
 CACHE:
 #HTML
-index.php
+#index.php
 #CSS
 jquery.mobile/jquery.mobile.min.css
 #JS
@@ -17,14 +17,11 @@ jquery.mobile/images/icons-18-black.png
 jquery.mobile/images/icons-18-white.png
 jquery.mobile/images/icons-36-black.png
 jquery.mobile/images/icons-36-white.png
-
 logo_200x100.png
-
 #FAVICON
 favicon.ico
 icon_64x64.png
-
 NETWORK:
-*
+ga.php
+index.php
 #
-

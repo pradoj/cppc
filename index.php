@@ -1,13 +1,13 @@
 <?php
+require_once 'config.php';
+?>
+<?php
   // Copyright 2009 Google Inc. All Rights Reserved.
   $GA_ACCOUNT = "MO-23860787-5";
   //$GA_PIXEL = "/ga.php";
   $GA_PIXEL = "ga.php";
 
   function googleAnalyticsGetImageUrl() {
-    if ( !isset($_SERVER["HTTP_REFERER"]) ) {
-        $_SERVER["HTTP_REFERER"] = '';
-    }
     if ( !isset($_SERVER["HTTP_REFERER"]) ) {
         $_SERVER["HTTP_REFERER"] = '';
     }
@@ -31,8 +31,8 @@
   }
 ?>
 <!DOCTYPE html>
-<!--<html>-->
-<html manifest="cache.appcache">
+<html>
+<!--<html manifest="cache.appcache">-->
   <head>
     <meta charset="utf-8">
 
@@ -49,77 +49,88 @@
     <link rel="stylesheet" href="jquery.mobile/jquery.mobile.min.css" />
     <style>
     div[data-role="header"] h1 {
-        background-image: url(logo_200x100.png);
+        /*background-image: url(logo_200x100.png);
         background-repeat: no-repeat;
         background-position: center;
         height: 100px;
-        min-width: 200px;
-        text-indent: -9000px;
+        min-width: 200px;*/
+        /*text-indent: -9000px;*/
+       .center-button{
+        margin: 0 auto;
+        }
+       .center-wrapper{
+        text-align: center;
+        }
+        .center-wrapper * {
+        margin: 0 auto;
+        }
     }
     </style>
     <script src="js/libs/jquery-1.5.1.min.js"></script>
     <script src="jquery.mobile/jquery.mobile.min.js"></script>
     <script src="js/libs/jquery.global.js"></script>
     <script src="js/libs/jquery.glob.pt-BR.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("form").bind("submit", function(event) {
-                event.preventDefault();
-            });
-          //  $('#value').click(function() {
-//            });
-            $.global.preferCulture("pt-BR");
-            //console.log('teste');
-            $("#calcular").click(function(event){
-                var value     = $.global.parseFloat($("#value").val());
-                var percent   = $.global.parseFloat($("#percent").val());
-                var resultado = value * percent / 100;
-                console.log(resultado);
-                $("#result").html(
-                    percent + '% de ' + value + ' é: ' + resultado
-                );
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
   </head>
-  <body>
+  <body>  
+	<div data-role="page" data-theme="e" id="options">
+		<?php require 'views/header_view.php'; ?>
+	    <ul data-role="listview" data-theme="c">
+			<li><a href="#input">% de um número</a></li>
+			<li><a href="#input2">% entre dois números</a></li>
+		</ul>
+	    <?php require 'views/footer_view.php'; ?>
+	</div>
      <div data-role="page" data-theme="e" id="input">
-        <div data-role="header">
-          <h1>CPPC</h1>
-          <h2> | Calculadora | % | Calc | </h2>
-          <h3><a href="http://pradoj.com">pradoj.com</a></h3>
-        </div>
+        <?php require 'views/header_view.php'; ?>
         <form data-role="content">
             <fieldset>
                 <label for="value">Valor:</label><br />
-                    <input id="value" type="number" autofocus="autofocus" placeholder="Ex.: 1,50"><br />
+                    <input id="value" type="number" autofocus="autofocus" /><br />
                 <div data-role="fieldcontain">
                     <label for="percent">Percentual</label><br />
-                        <input type="range" name="percent" id="percent" value="0" min="0" max="100" placeholder="Ex.: 1%"><br />
+                        <input type="range" name="percent" id="percent" value="0" min="0" max="100" /><br />
                 </div>
                 <p>
                     <a href="#output" id="calcular" data-role="button">Calcular</a><br />
                 </p>
             </fieldset>
         </form>
-        <div data-role="footer">
-            <p>(c) <?php echo date('Y');?> - <a href="http://pradoj.com">pradoj.com</a> - <a href="http://<?php echo $_SERVER['HTTP_HOST'];  ?>/contato/">Contato</a></p>
-        </div>
+        <?php require 'views/footer_view.php'; ?>
     </div>
-
+    
     <div data-role="page" data-theme="e" id="output">
-        <div data-role="header">
-          <h1>CPPC</h1>
-          <h2> | Calculadora | % | Calc | </h2>
-          <h3><a href="http://pradoj.com">pradoj.com</a></h3>
-        </div>
+        <?php require 'views/header_view.php'; ?>
         <div data-role="content">
             <div id="result"></div>
             <a href="#input" data-rel="back" data-role="button" data-theme="e">Voltar</a>
         </div>
-        <div data-role="footer">
-            <p>(c) <?php echo date('Y');?> - <a href="http://pradoj.com">pradoj.com</a> - <a href="http://<?php echo $_SERVER['HTTP_HOST'];  ?>/contato/">Contato</a></p>
+        <?php require 'views/footer_view.php'; ?>
+    </div>
+
+	<div data-role="page" data-theme="e" id="input2">
+        <?php require 'views/header_view.php'; ?>
+        <form data-role="content">
+            <fieldset>
+                <label for="value1">1º Valor:</label>
+                    <input id="value1" type="number" autofocus="autofocus" /><br />
+                <label for="value2">2º Valor:</label>
+                    <input id="value2" type="number" /><br />
+                <p>
+                    <a href="#output2" id="calcular2" data-role="button">Calcular</a><br />
+                </p>
+            </fieldset>
+        </form>
+        <?php require 'views/footer_view.php'; ?>
+    </div>    
+
+    <div data-role="page" data-theme="e" id="output2">
+        <?php require 'views/header_view.php'; ?>
+        <div data-role="content">
+            <div id="result2"></div>
+            <a href="#input2" data-rel="back" data-role="button" data-theme="e">Voltar</a>
         </div>
+        <?php require 'views/footer_view.php'; ?>
     </div>
 
     <?php
