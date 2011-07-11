@@ -86,7 +86,7 @@ require_once 'config.php';
         <form data-role="content">
             <fieldset>
                 <label for="value">Valor:</label><br />
-                    <input id="value" type="number" autofocus="autofocus" /><br />
+                    <input id="value" type="number" /><br />
                 <div data-role="fieldcontain">
                     <label for="percent">Percentual</label><br />
                         <input type="range" name="percent" id="percent" value="0" min="0" max="100" /><br />
@@ -113,7 +113,7 @@ require_once 'config.php';
         <form data-role="content">
             <fieldset>
                 <label for="value1">1º Valor:</label>
-                    <input id="value1" type="number" autofocus="autofocus" /><br />
+                    <input id="value1" type="number" /><br />
                 <label for="value2">2º Valor:</label>
                     <input id="value2" type="number" /><br />
                 <p>
