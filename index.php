@@ -31,8 +31,8 @@ require_once 'config.php';
   }
 ?>
 <!DOCTYPE html>
-<html>
-<!--<html manifest="cache.appcache">-->
+<!--<html>-->
+<html manifest="cache.appcache">
   <head>
     <meta charset="utf-8">
 
