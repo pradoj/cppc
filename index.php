@@ -36,9 +36,10 @@ require_once 'config.php';
   <head>
     <meta charset="utf-8">
 
-    <title>CPPC - Pradoj.com</title>
+    <title>Calculadora percentual - CPPC - Pradoj.com</title>
     <meta name="description" content="Esta é uma calculadora simples para calcular porcentagens. This is a simple calculator to calculate percentage" />
     <meta name="author" content="Rogerio Prado de Jesus - http://rogeriopradoj.com" />
+    <meta name="keywords" content="calculadora calculator calc percentual percentuais percentagem percentagens porcentual porcentuais percentage percentages" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -75,6 +76,7 @@ require_once 'config.php';
   <body>  
 	<div data-role="page" data-theme="e" id="options">
 		<?php require 'views/header_view.php'; ?>
+		<img src="logo_200x100.png" alt="logo" />
 	    <ul data-role="listview" data-theme="c">
 			<li><a href="#input">% de um número</a></li>
 			<li><a href="#input2">% entre dois números</a></li>
