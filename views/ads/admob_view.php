@@ -1,4 +1,3 @@
-<p>Teste</p>
 <script type="text/javascript">
 var admob_vars = {
  pubid: 'a14e1a7a8c0bd9c', // publisher id
