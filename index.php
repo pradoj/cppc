@@ -34,6 +34,15 @@ require_once 'config.php';
 <!--<html>-->
 <html manifest="cache.appcache">
   <head>
+    <script>
+    if (window.applicationCache) {
+    	applicationCache.addEventListener('updateready', function() {
+	        if (confirm('Uma nova versão está disponível. Mostrar agora?')) {
+            	window.location.reload();
+        	}
+    	});
+	}
+    </script>
     <meta charset="utf-8">
 
     <title>Calculadora percentual - CPPC - Pradoj.com</title>
