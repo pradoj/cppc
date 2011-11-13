@@ -76,6 +76,9 @@ require_once 'config.php';
         }
     }
     </style>
+    <script type="text/javascript">
+		window.google_analytics_uacct = "UA-23860787-5";
+	</script>
     <script src="js/libs/jquery-1.5.1.min.js"></script>
     <script src="jquery.mobile/jquery.mobile.min.js"></script>
     <script src="js/libs/jquery.global.js"></script>
