@@ -1,8 +1,8 @@
 CACHE MANIFEST
-#10/11/2011 - 04h59
+#2016-05-18 - 21h50
 CACHE:
 #HTML
-index.php
+index.html
 #CSS
 jquery.mobile/jquery.mobile.min.css
 #JS
@@ -23,8 +23,7 @@ logo_200x100.png
 favicon.ico
 icon_64x64.png
 NETWORK:
-ga.php
-#index.php
+#index.html
 #
 #
 #

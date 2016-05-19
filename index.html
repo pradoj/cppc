@@ -1,35 +1,3 @@
-<?php
-require_once 'config.php';
-?>
-<?php
-  // Copyright 2009 Google Inc. All Rights Reserved.
-  $GA_ACCOUNT = "MO-23860787-5";
-  //$GA_PIXEL = "/ga.php";
-  $GA_PIXEL = "ga.php";
-
-  function googleAnalyticsGetImageUrl() {
-    if ( !isset($_SERVER["HTTP_REFERER"]) ) {
-        $_SERVER["HTTP_REFERER"] = '';
-    }
-    global $GA_ACCOUNT, $GA_PIXEL;
-    $url = "";
-    $url .= $GA_PIXEL . "?";
-    $url .= "utmac=" . $GA_ACCOUNT;
-    $url .= "&utmn=" . rand(0, 0x7fffffff);
-    $referer = $_SERVER["HTTP_REFERER"];
-    $query = $_SERVER["QUERY_STRING"];
-    $path = $_SERVER["REQUEST_URI"];
-    if (empty($referer)) {
-      $referer = "-";
-    }
-    $url .= "&utmr=" . urlencode($referer);
-    if (!empty($path)) {
-      $url .= "&utmp=" . urlencode($path);
-    }
-    $url .= "&guid=ON";
-    return str_replace("&", "&amp;", $url);
-  }
-?>
 <!DOCTYPE html>
 <!--<html>-->
 <html manifest="cache.appcache">
@@ -42,6 +10,7 @@ require_once 'config.php';
         	}
     	});
 	}
+
     </script>
     <meta charset="utf-8">
 
@@ -87,7 +56,12 @@ require_once 'config.php';
   </head>
   <body>  
 	<div data-role="page" data-theme="e" id="options">
-		<?php require 'views/header_view.php'; ?>
+		<div data-role="header">
+            <!--<h1><img src="logo_200x100.png" width="200" height="100" alt="Logo" /></h1>-->
+            <h2><a href=".">Calculadora percentual CPPC</a></h2>
+            <h3><a href="http://pradoj.com">pradoj.com</a></h3>
+        </div>
+
 		<img src="logo_200x100.png" alt="logo" />
 	    <ul data-role="listview" data-theme="c">
 			<li><a href="#input">% de um número</a></li>
@@ -96,7 +70,12 @@ require_once 'config.php';
 	    <?php require 'views/footer_view.php'; ?>
 	</div>
      <div data-role="page" data-theme="e" id="input">
-        <?php require 'views/header_view.php'; ?>
+        <div data-role="header">
+            <!--<h1><img src="logo_200x100.png" width="200" height="100" alt="Logo" /></h1>-->
+            <h2><a href=".">Calculadora percentual CPPC</a></h2>
+            <h3><a href="http://pradoj.com">pradoj.com</a></h3>
+        </div>
+
         <form data-role="content">
             <fieldset>
                 <label for="value">Valor:</label><br />
@@ -114,7 +93,12 @@ require_once 'config.php';
     </div>
     
     <div data-role="page" data-theme="e" id="output">
-        <?php require 'views/header_view.php'; ?>
+        <div data-role="header">
+            <!--<h1><img src="logo_200x100.png" width="200" height="100" alt="Logo" /></h1>-->
+            <h2><a href=".">Calculadora percentual CPPC</a></h2>
+            <h3><a href="http://pradoj.com">pradoj.com</a></h3>
+        </div>
+
         <div data-role="content">
             <div id="result"></div>
             <a href="#input" data-rel="back" data-role="button" data-theme="e">Voltar</a>
@@ -123,7 +107,12 @@ require_once 'config.php';
     </div>
 
 	<div data-role="page" data-theme="e" id="input2">
-        <?php require 'views/header_view.php'; ?>
+        <div data-role="header">
+            <!--<h1><img src="logo_200x100.png" width="200" height="100" alt="Logo" /></h1>-->
+            <h2><a href=".">Calculadora percentual CPPC</a></h2>
+            <h3><a href="http://pradoj.com">pradoj.com</a></h3>
+        </div>
+
         <form data-role="content">
             <fieldset>
                 <label for="value1">1º Valor:</label>
@@ -139,7 +128,12 @@ require_once 'config.php';
     </div>    
 
     <div data-role="page" data-theme="e" id="output2">
-        <?php require 'views/header_view.php'; ?>
+        <div data-role="header">
+            <!--<h1><img src="logo_200x100.png" width="200" height="100" alt="Logo" /></h1>-->
+            <h2><a href=".">Calculadora percentual CPPC</a></h2>
+            <h3><a href="http://pradoj.com">pradoj.com</a></h3>
+        </div>
+
         <div data-role="content">
             <div id="result2"></div>
             <a href="#input2" data-rel="back" data-role="button" data-theme="e">Voltar</a>
@@ -147,8 +141,14 @@ require_once 'config.php';
         <?php require 'views/footer_view.php'; ?>
     </div>
 
-    <?php
-    $googleAnalyticsImageUrl = googleAnalyticsGetImageUrl();
-    echo '<img alt ="" src="' . $googleAnalyticsImageUrl . '" />';?>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-23860787-5', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>
