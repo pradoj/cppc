@@ -1,0 +1,21 @@
+http://cppc.pradoj.com.dev:80 {
+    redir https://{host}{uri}
+}
+
+https://cppc.pradoj.com.dev:443 {
+    tls {$HOME}/.certificates-local/cppc.pradoj.com.dev.crt {$HOME}/.certificates-local/cppc.pradoj.com.dev.key
+
+}
+
+
+# # How to genereate those .crt and .key
+# openssl genrsa -out ~/.certificates-local/cppc.pradoj.com.dev.key 2048
+# openssl req -new -subj "/C=/ST=/O=/localityName=/commonName=cppc.pradoj.com.dev/organizationalUnitName=/emailAddress=/" -key ~/.certificates-local/cppc.pradoj.com.dev.key -out ~/.certificates-local/cppc.pradoj.com.dev.csr -passin pass:
+# openssl x509 -req -days 365 -in ~/.certificates-local/cppc.pradoj.com.dev.csr -signkey ~/.certificates-local/cppc.pradoj.com.dev.key -out ~/.certificates-local/cppc.pradoj.com.dev.crt
+
+# # How to make the certificate trusted in my machine
+# sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.certificates-local/cppc.pradoj.com.dev.crt
+
+# # How to "untrust" and remove those certificates after using
+# sudo security delete-certificate -c "cppc.pradoj.com.dev" -t
+# rm ~/.certificates-local/cppc.pradoj.com.dev.*
