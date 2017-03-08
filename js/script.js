@@ -3,14 +3,13 @@ $(function(){
 	    event.preventDefault();
 	});
 	$.global.preferCulture("pt-BR");
-	//console.log('teste');
 	
 	// input1 -> percentual de um número
 	$("#calcular").click(function(event){
 	    var value     = $.global.parseFloat($("#value").val());
 	    var percent   = $.global.parseFloat($("#percent").val());
 	    var resultado = value * percent / 100;
-	    console.log(resultado);
+	    
 	    $("#result").html(
 	        '<strong>' + $.global.format(percent, 'd') + '% </strong>' +
 	        ' de ' +
@@ -43,8 +42,8 @@ $(function(){
             '<strong>' + $.global.format(value1, 'n') + '</strong>' + 
             '</li>';
         html2 = html2 + '</ul>';
-        console.log(html2);
+        
         $("#result2").html(html2);
     });
 	
-});
+});

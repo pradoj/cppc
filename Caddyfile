@@ -9,6 +9,7 @@ https://cppc.pradoj.com.dev:443 {
 
 
 # # How to genereate those .crt and .key
+# mkdir -p ~/.certificates-local
 # openssl genrsa -out ~/.certificates-local/cppc.pradoj.com.dev.key 2048
 # openssl req -new -subj "/C=/ST=/O=/localityName=/commonName=cppc.pradoj.com.dev/organizationalUnitName=/emailAddress=/" -key ~/.certificates-local/cppc.pradoj.com.dev.key -out ~/.certificates-local/cppc.pradoj.com.dev.csr -passin pass:
 # openssl x509 -req -days 365 -in ~/.certificates-local/cppc.pradoj.com.dev.csr -signkey ~/.certificates-local/cppc.pradoj.com.dev.key -out ~/.certificates-local/cppc.pradoj.com.dev.crt
